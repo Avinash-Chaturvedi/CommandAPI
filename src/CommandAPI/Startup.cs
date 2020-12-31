@@ -53,7 +53,11 @@ namespace CommandAPI
                 {
                     opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
-
+            
+            //services.Configure<JsonOptions>(opts => {
+            //    opts.JsonSerializerOptions.IgnoreNullValues = true;
+            //});
+           
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();

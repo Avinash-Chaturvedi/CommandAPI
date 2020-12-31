@@ -11,11 +11,5 @@ namespace CommandAPI.ModelValidation
             RuleFor(x => x.HowTo).NotNull().MaximumLength(10).NotEmpty();
             RuleFor(x => x.Platform).NotNull().NotEmpty();
         }
-
-        public override void EnsureInstanceNotNull(object instanceToValidate)
-        {
-
-        }
-
     }
 }
