@@ -35,7 +35,7 @@ namespace CommandAPI
             builder.Username = Configuration["UserID"];
             builder.Password = Configuration["Password"];
 
-            services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
+            //services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
 
             services.AddControllers()
                     .AddNewtonsoftJson(s =>
@@ -60,7 +60,7 @@ namespace CommandAPI
            
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
+            services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
 
             services.AddSwaggerGen(c =>
             {
@@ -99,6 +99,8 @@ namespace CommandAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 

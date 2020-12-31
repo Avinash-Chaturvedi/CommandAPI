@@ -1,0 +1,7 @@
+dotnet dev-certs https --trust
+docker build -t commandapi .
+docker run commandapi
+docker images
+docker ps
+docker stop 71dfa259ccc3
+
